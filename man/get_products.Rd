@@ -7,6 +7,10 @@
 get_products(
   store_id,
   page,
+  created_at_min = NULL,
+  created_at_max = NULL,
+  updated_at_min = NULL,
+  updated_at_max = NULL,
   per_page = 200,
   access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")
 )
@@ -15,6 +19,14 @@ get_products(
 \item{store_id}{The ID of the store.}
 
 \item{page}{Page to retrieve.}
+
+\item{created_at_min}{Show Products created after date (ISO 8601 format).}
+
+\item{created_at_max}{Show Products created before date (ISO 8601 format).}
+
+\item{updated_at_min}{Show Products last updated after date (ISO 8601 format).}
+
+\item{updated_at_max}{Show Products last updated before date (ISO 8601 format).}
 
 \item{per_page}{Amount of results.}
 

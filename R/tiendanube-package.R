@@ -1,4 +1,4 @@
-#' Tienda Nube API interface.
+#' Tienda Nube API Interface.
 #'
 "_PACKAGE"
 

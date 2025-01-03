@@ -6,11 +6,23 @@
 \usage{
 get_all_products(
   store_id,
+  created_at_min = NULL,
+  created_at_max = NULL,
+  updated_at_min = NULL,
+  updated_at_max = NULL,
   access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")
 )
 }
 \arguments{
 \item{store_id}{The ID of the store.}
+
+\item{created_at_min}{Show Products created after date (ISO 8601 format).}
+
+\item{created_at_max}{Show Products created before date (ISO 8601 format).}
+
+\item{updated_at_min}{Show Products last updated after date (ISO 8601 format).}
+
+\item{updated_at_max}{Show Products last updated before date (ISO 8601 format).}
 
 \item{access_token}{The store's access token for your app.}
 }

@@ -4,7 +4,11 @@
 \name{tiendanube-package}
 \alias{tiendanube}
 \alias{tiendanube-package}
-\title{Tienda Nube API interface.}
+\title{Tienda Nube API Interface.}
 \description{
-More about what it does (maybe more than one line) Use four spaces when indenting paragraphs within the Description.
+Tienda Nube API Interface. The official API documentaion is at \url{https://tiendanube.github.io/api-documentation}.
+}
+\author{
+\strong{Maintainer}: Juan Cruz Rodriguez \email{jcrodriguez@unc.edu.ar}
+
 }

@@ -1,0 +1,4 @@
+linters: linters_with_defaults(
+   ## Changed linters.
+   line_length_linter = line_length_linter(length = 100L) # Maximum line length.
+ )
