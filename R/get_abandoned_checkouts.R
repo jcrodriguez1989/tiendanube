@@ -50,8 +50,7 @@ get_all_abandoned_checkouts <- function(store_id, created_at_max = NULL, updated
   while (TRUE) {
     new_abandoned_checkouts <- get_abandoned_checkouts(
       store_id, page, created_at_max, updated_at_max,
-      fields = fields,
-      access_token = access_token
+      fields = fields, access_token = access_token
     )
     if (isTRUE(new_abandoned_checkouts$code == 404) || length(new_abandoned_checkouts) == 0) {
       break
