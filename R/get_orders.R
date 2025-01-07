@@ -41,6 +41,7 @@ get_orders <- function(store_id, page, created_at_min = NULL, created_at_max = N
 #' @param updated_at_min Show Orders last updated after date (ISO 8601 format).
 #' @param updated_at_max Show Orders last updated before date (ISO 8601 format).
 #' @param fields Comma-separated list of fields to include in the response.
+#' @param max_pages Max pages to query.
 #' @param access_token The store's access token for your app.
 #'
 #' @importFrom dplyr bind_rows
@@ -49,10 +50,10 @@ get_orders <- function(store_id, page, created_at_min = NULL, created_at_max = N
 #'
 get_all_orders <- function(store_id, created_at_min = NULL, created_at_max = NULL,
                            updated_at_min = NULL, updated_at_max = NULL, fields = NULL,
-                           access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")) {
+                           max_pages = Inf, access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")) {
   page <- 1
   orders <- data.frame()
-  while (TRUE) {
+  while (page <= max_pages) {
     new_orders <- get_orders(
       store_id, page, created_at_min, created_at_max, updated_at_min, updated_at_max,
       fields = fields, access_token = access_token

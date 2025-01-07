@@ -36,6 +36,7 @@ get_abandoned_checkouts <- function(store_id, page, created_at_max = NULL, updat
 #' @param created_at_max Show Abandoned Checkouts created before date (ISO 8601 format).
 #' @param updated_at_max Show Abandoned Checkouts last updated before date (ISO 8601 format).
 #' @param fields Comma-separated list of fields to include in the response.
+#' @param max_pages Max pages to query.
 #' @param access_token The store's access token for your app.
 #'
 #' @importFrom dplyr bind_rows
@@ -43,11 +44,11 @@ get_abandoned_checkouts <- function(store_id, page, created_at_max = NULL, updat
 #' @export
 #'
 get_all_abandoned_checkouts <- function(store_id, created_at_max = NULL, updated_at_max = NULL,
-                                        fields = NULL,
+                                        fields = NULL, max_pages = Inf,
                                         access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")) {
   page <- 1
   abandoned_checkouts <- data.frame()
-  while (TRUE) {
+  while (page <= max_pages) {
     new_abandoned_checkouts <- get_abandoned_checkouts(
       store_id, page, created_at_max, updated_at_max,
       fields = fields, access_token = access_token

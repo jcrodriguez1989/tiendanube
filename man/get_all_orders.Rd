@@ -11,6 +11,7 @@ get_all_orders(
   updated_at_min = NULL,
   updated_at_max = NULL,
   fields = NULL,
+  max_pages = Inf,
   access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")
 )
 }
@@ -26,6 +27,8 @@ get_all_orders(
 \item{updated_at_max}{Show Orders last updated before date (ISO 8601 format).}
 
 \item{fields}{Comma-separated list of fields to include in the response.}
+
+\item{max_pages}{Max pages to query.}
 
 \item{access_token}{The store's access token for your app.}
 }
