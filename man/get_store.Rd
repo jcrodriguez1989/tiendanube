@@ -4,10 +4,16 @@
 \alias{get_store}
 \title{Get Store}
 \usage{
-get_store(store_id, access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN"))
+get_store(
+  store_id,
+  fields = NULL,
+  access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")
+)
 }
 \arguments{
 \item{store_id}{The ID of the store.}
+
+\item{fields}{Comma-separated list of fields to include in the response.}
 
 \item{access_token}{The store's access token for your app.}
 }
