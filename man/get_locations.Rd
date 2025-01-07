@@ -12,6 +12,7 @@ get_locations(
   updated_at_min = NULL,
   updated_at_max = NULL,
   per_page = 200,
+  fields = NULL,
   access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")
 )
 }
@@ -29,6 +30,8 @@ get_locations(
 \item{updated_at_max}{Show Locations last updated before date (ISO 8601 format).}
 
 \item{per_page}{Amount of results.}
+
+\item{fields}{Comma-separated list of fields to include in the response.}
 
 \item{access_token}{The store's access token for your app.}
 }

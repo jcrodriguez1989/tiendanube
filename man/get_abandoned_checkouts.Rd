@@ -10,6 +10,7 @@ get_abandoned_checkouts(
   created_at_max = NULL,
   updated_at_max = NULL,
   per_page = 200,
+  fields = NULL,
   access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")
 )
 }
@@ -23,6 +24,8 @@ get_abandoned_checkouts(
 \item{updated_at_max}{Show Abandoned Checkouts last updated before date (ISO 8601 format).}
 
 \item{per_page}{Amount of results.}
+
+\item{fields}{Comma-separated list of fields to include in the response.}
 
 \item{access_token}{The store's access token for your app.}
 }
