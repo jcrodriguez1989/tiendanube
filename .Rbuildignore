@@ -3,3 +3,4 @@
 ^\.lintr$
 ^LICENSE\.md$
 ^README\.Rmd$
+^\.github$

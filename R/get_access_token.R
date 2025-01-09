@@ -23,6 +23,6 @@ get_access_token <- function(client_id, client_secret, code) {
       code = code
     )
   ) |>
-    content(aa, as = "text", encoding = "UTF-8") |>
+    content(as = "text", encoding = "UTF-8") |>
     fromJSON()
 }
