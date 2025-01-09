@@ -55,6 +55,9 @@ get_all_abandoned_checkouts <- function(store_id, created_at_max = NULL, updated
     )
     if (isTRUE(new_abandoned_checkouts$code == 404) || length(new_abandoned_checkouts) == 0) {
       break
+    } else if (isTRUE(new_abandoned_checkouts$code == 401)) {
+      # Invalid access token.
+      return(new_abandoned_checkouts)
     }
     abandoned_checkouts <- bind_rows(new_abandoned_checkouts, abandoned_checkouts)
     page <- page + 1
