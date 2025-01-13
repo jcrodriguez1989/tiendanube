@@ -41,6 +41,7 @@ get_locations <- function(store_id, page, created_at_min = NULL, created_at_max 
 #' @param updated_at_min Show Locations last updated after date (ISO 8601 format).
 #' @param updated_at_max Show Locations last updated before date (ISO 8601 format).
 #' @param fields Comma-separated list of fields to include in the response.
+#' @param max_pages Max pages to query.
 #' @param access_token The store's access token for your app.
 #'
 #' @importFrom dplyr bind_rows
@@ -49,16 +50,20 @@ get_locations <- function(store_id, page, created_at_min = NULL, created_at_max 
 #'
 get_all_locations <- function(store_id, created_at_min = NULL, created_at_max = NULL,
                               updated_at_min = NULL, updated_at_max = NULL, fields = NULL,
+                              max_pages = Inf,
                               access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")) {
   page <- 1
   locations <- data.frame()
-  while (TRUE) {
+  while (page <= max_pages) {
     new_locations <- get_locations(
       store_id, page, created_at_min, created_at_max, updated_at_min, updated_at_max,
       fields = fields, access_token = access_token
     )
     if (isTRUE(new_locations$code == 404) || length(new_locations) == 0) {
       break
+    } else if (isTRUE(new_locations$code == 401)) {
+      # Invalid access token.
+      return(new_locations)
     }
     locations <- bind_rows(new_locations, locations)
     page <- page + 1

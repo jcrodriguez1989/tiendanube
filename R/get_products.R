@@ -41,6 +41,7 @@ get_products <- function(store_id, page, created_at_min = NULL, created_at_max =
 #' @param updated_at_min Show Products last updated after date (ISO 8601 format).
 #' @param updated_at_max Show Products last updated before date (ISO 8601 format).
 #' @param fields Comma-separated list of fields to include in the response.
+#' @param max_pages Max pages to query.
 #' @param access_token The store's access token for your app.
 #'
 #' @importFrom dplyr bind_rows
@@ -49,16 +50,20 @@ get_products <- function(store_id, page, created_at_min = NULL, created_at_max =
 #'
 get_all_products <- function(store_id, created_at_min = NULL, created_at_max = NULL,
                              updated_at_min = NULL, updated_at_max = NULL, fields = NULL,
+                             max_pages = Inf,
                              access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")) {
   page <- 1
   products <- data.frame()
-  while (TRUE) {
+  while (page <= max_pages) {
     new_products <- get_products(
       store_id, page, created_at_min, created_at_max, updated_at_min, updated_at_max,
       fields = fields, access_token = access_token
     )
     if (isTRUE(new_products$code == 404) || length(new_products) == 0) {
       break
+    } else if (isTRUE(new_products$code == 401)) {
+      # Invalid access token.
+      return(new_products)
     }
     products <- bind_rows(new_products, products)
     page <- page + 1

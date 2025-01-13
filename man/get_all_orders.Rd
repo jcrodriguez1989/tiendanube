@@ -6,16 +6,46 @@
 \usage{
 get_all_orders(
   store_id,
+  since_id = NULL,
+  status = NULL,
+  channels = NULL,
+  payment_status = NULL,
+  shipping_status = NULL,
   created_at_min = NULL,
   created_at_max = NULL,
   updated_at_min = NULL,
   updated_at_max = NULL,
+  total_min = NULL,
+  total_max = NULL,
+  customer_ids = NULL,
   fields = NULL,
+  q = NULL,
+  app_id = NULL,
+  payment_methods = NULL,
+  payment_provider = NULL,
+  aggregates = NULL,
+  max_pages = Inf,
   access_token = Sys.getenv("TIENDANUBE_ACCESS_TOKEN")
 )
 }
 \arguments{
 \item{store_id}{The ID of the store.}
+
+\item{since_id}{Restrict results to after the specified ID.}
+
+\item{status}{Show Orders with a given state. Possible values are "any" (default), "open",
+"closed" or "cancelled".}
+
+\item{channels}{Restrict results to the specified sales channel. Possible values are "form"
+(draft order created via admin or API), "store" (order created in the storefront), "api"
+(order created via API - doesn't include draft orders), "meli" (order imported from Mercado
+Libre) or "pos" (order created via point of sale app).}
+
+\item{payment_status}{Show Orders with a given payment state. Possible values are "any"
+(default), "pending", "authorized", "paid", "abandoned", "refunded" or "voided".}
+
+\item{shipping_status}{Show Orders with a given shipping state. Possible values are "any"
+(default), "unpacked", "unfulfilled" (means "unshipped") or "fulfilled" (means "shipped").}
 
 \item{created_at_min}{Show Orders created after date (ISO 8601 format).}
 
@@ -25,7 +55,29 @@ get_all_orders(
 
 \item{updated_at_max}{Show Orders last updated before date (ISO 8601 format).}
 
+\item{total_min}{Show Orders with total value bigger or equals than the specified value.}
+
+\item{total_max}{Show Orders with total value lower or equals than the specified value.}
+
+\item{customer_ids}{Restrict results to the specified customer IDs (comma-separated).}
+
 \item{fields}{Comma-separated list of fields to include in the response.}
+
+\item{q}{Search Orders by the given number; or containing the given text in the customer name
+or email.}
+
+\item{app_id}{Show orders created by a given app.}
+
+\item{payment_methods}{Show orders with a given payment method.}
+
+\item{payment_provider}{Show orders with a given payment provider.}
+
+\item{aggregates}{One possible value: fulfillment_orders. Enables an array called fulfillments
+that displays the information of the Fulfillment Order. Important: in the list of orders
+(endpoint GET /orders), it returns partial information of the Fulfillment Order. The full
+information is only displayed if a single order is queried (endpoint GET /orders/{id}).}
+
+\item{max_pages}{Max pages to query.}
 
 \item{access_token}{The store's access token for your app.}
 }

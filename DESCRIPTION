@@ -1,7 +1,7 @@
 Package: tiendanube
 Type: Package
 Title: Tienda Nube API Interface
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
   c(person(
     given = "Juan Cruz",
@@ -18,4 +18,5 @@ LazyData: true
 RoxygenNote: 7.2.3
 Imports:
   dplyr,
-  httr
+  httr,
+  jsonlite
