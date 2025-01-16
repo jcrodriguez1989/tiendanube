@@ -37,5 +37,6 @@ get_locations(
 }
 \description{
 Receive a list of Locations.
+Needs "View Locations" permissions.
 Docs: https://tiendanube.github.io/api-documentation/resources/location .
 }

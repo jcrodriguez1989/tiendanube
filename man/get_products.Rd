@@ -37,5 +37,6 @@ get_products(
 }
 \description{
 Receive a list of Products.
+Needs "View Products" permissions.
 Docs: https://tiendanube.github.io/api-documentation/resources/product .
 }

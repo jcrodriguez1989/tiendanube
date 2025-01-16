@@ -37,5 +37,6 @@ get_categories(
 }
 \description{
 Receive a list of Categories.
+Needs "View Products" permissions.
 Docs: https://tiendanube.github.io/api-documentation/resources/category .
 }

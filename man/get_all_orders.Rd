@@ -83,4 +83,5 @@ information is only displayed if a single order is queried (endpoint GET /orders
 }
 \description{
 Receive a list of all Orders.
+Needs "View Orders" permissions.
 }

@@ -34,4 +34,5 @@ get_all_customers(
 }
 \description{
 Receive a list of all Customers.
+Needs "View Customers" permissions.
 }

@@ -34,4 +34,5 @@ get_all_locations(
 }
 \description{
 Receive a list of all Locations.
+Needs "View Locations" permissions.
 }
