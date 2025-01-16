@@ -86,5 +86,6 @@ information is only displayed if a single order is queried (endpoint GET /orders
 }
 \description{
 Receive a list of Orders.
+Needs "View Orders" permissions.
 Docs: https://tiendanube.github.io/api-documentation/resources/order .
 }

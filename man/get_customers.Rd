@@ -37,5 +37,6 @@ get_customers(
 }
 \description{
 Receive a list of Customers.
+Needs "View Customers" permissions.
 Docs: https://tiendanube.github.io/api-documentation/resources/customer .
 }

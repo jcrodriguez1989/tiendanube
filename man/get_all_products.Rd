@@ -34,4 +34,5 @@ get_all_products(
 }
 \description{
 Receive a list of all Products.
+Needs "View Products" permissions.
 }

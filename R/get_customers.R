@@ -1,6 +1,7 @@
 #' Get Customers
 #'
 #' Receive a list of Customers.
+#' Needs "View Customers" permissions.
 #' Docs: https://tiendanube.github.io/api-documentation/resources/customer .
 #'
 #' @param store_id The ID of the store.
@@ -34,6 +35,7 @@ get_customers <- function(store_id, page, created_at_min = NULL, created_at_max 
 #' Get All Customers
 #'
 #' Receive a list of all Customers.
+#' Needs "View Customers" permissions.
 #'
 #' @param store_id The ID of the store.
 #' @param created_at_min Show Customers created after date (ISO 8601 format).

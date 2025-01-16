@@ -1,6 +1,7 @@
 #' Get Categories
 #'
 #' Receive a list of Categories.
+#' Needs "View Products" permissions.
 #' Docs: https://tiendanube.github.io/api-documentation/resources/category .
 #'
 #' @param store_id The ID of the store.
@@ -34,6 +35,7 @@ get_categories <- function(store_id, page, created_at_min = NULL, created_at_max
 #' Get All Categories
 #'
 #' Receive a list of all Categories.
+#' Needs "View Products" permissions.
 #'
 #' @param store_id The ID of the store.
 #' @param created_at_min Show Categories created after date (ISO 8601 format).

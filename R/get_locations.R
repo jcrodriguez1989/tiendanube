@@ -1,6 +1,7 @@
 #' Get Locations
 #'
 #' Receive a list of Locations.
+#' Needs "View Locations" permissions.
 #' Docs: https://tiendanube.github.io/api-documentation/resources/location .
 #'
 #' @param store_id The ID of the store.
@@ -34,6 +35,7 @@ get_locations <- function(store_id, page, created_at_min = NULL, created_at_max 
 #' Get All Locations
 #'
 #' Receive a list of all Locations.
+#' Needs "View Locations" permissions.
 #'
 #' @param store_id The ID of the store.
 #' @param created_at_min Show Locations created after date (ISO 8601 format).

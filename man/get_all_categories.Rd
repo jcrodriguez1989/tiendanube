@@ -34,4 +34,5 @@ get_all_categories(
 }
 \description{
 Receive a list of all Categories.
+Needs "View Products" permissions.
 }
