@@ -61,7 +61,7 @@ get_all_categories <- function(store_id, created_at_min = NULL, created_at_max =
     )
     if (isTRUE(new_categories$code == 404) || length(new_categories) == 0) {
       break
-    } else if (isTRUE(new_categories$code == 401)) {
+    } else if (isTRUE(new_categories$code %in% c(401, 403))) {
       # Invalid access token.
       return(new_categories)
     }

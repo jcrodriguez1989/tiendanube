@@ -61,7 +61,7 @@ get_all_locations <- function(store_id, created_at_min = NULL, created_at_max = 
     )
     if (isTRUE(new_locations$code == 404) || length(new_locations) == 0) {
       break
-    } else if (isTRUE(new_locations$code == 401)) {
+    } else if (isTRUE(new_locations$code %in% c(401, 403))) {
       # Invalid access token.
       return(new_locations)
     }

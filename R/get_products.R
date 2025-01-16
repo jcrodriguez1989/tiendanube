@@ -61,7 +61,7 @@ get_all_products <- function(store_id, created_at_min = NULL, created_at_max = N
     )
     if (isTRUE(new_products$code == 404) || length(new_products) == 0) {
       break
-    } else if (isTRUE(new_products$code == 401)) {
+    } else if (isTRUE(new_products$code %in% c(401, 403))) {
       # Invalid access token.
       return(new_products)
     }

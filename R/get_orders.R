@@ -120,7 +120,7 @@ get_all_orders <- function(store_id, since_id = NULL, status = NULL, channels = 
     )
     if (isTRUE(new_orders$code %in% c(404, 422)) || length(new_orders) == 0) {
       break
-    } else if (isTRUE(new_orders$code == 401)) {
+    } else if (isTRUE(new_orders$code %in% c(401, 403))) {
       # Invalid access token.
       return(new_orders)
     }

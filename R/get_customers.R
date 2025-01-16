@@ -61,7 +61,7 @@ get_all_customers <- function(store_id, created_at_min = NULL, created_at_max = 
     )
     if (isTRUE(new_customers$code == 404) || length(new_customers) == 0) {
       break
-    } else if (isTRUE(new_customers$code == 401)) {
+    } else if (isTRUE(new_customers$code %in% c(401, 403))) {
       # Invalid access token.
       return(new_customers)
     }
